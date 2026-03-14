@@ -12,4 +12,4 @@ PostgreSQL, PL/pgSQL
 - Trigger-based audit log and doctor schedule view
 
 ## Database Diagram
-![Database Schema](Medical_Appointment_Database.png)
+![Database Schema](Medical_Appointment_Database_Diagram.png)
