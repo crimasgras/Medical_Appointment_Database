@@ -90,7 +90,6 @@ VALUES (1, 1, '2026-03-05 10:00:00');
 -- VALUES (2, 1, '2026-03-05 10:00:00');
 
 
--- Function to schedule an appointment with validation
 CREATE OR REPLACE FUNCTION schedule_appointment(
     p_patient_id INT,
     p_doctor_id INT,
@@ -106,7 +105,6 @@ BEGIN
         RETURN 'Appointment time must be in the future';
     END IF;
 
-    -- Insert appointment
     INSERT INTO appointments(patient_id, doctor_id, appointment_time)
     VALUES (p_patient_id, p_doctor_id, p_time);
 
