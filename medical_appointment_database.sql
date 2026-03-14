@@ -147,6 +147,25 @@ BEGIN
 END;
 $$;
 
+-- Function to cancel a scheduled appointment
+CREATE OR REPLACE FUNCTION cancel_appointment(p_appointment_id INT)
+RETURNS TEXT
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    UPDATE appointments
+    SET status = 'cancelled'
+    WHERE appointment_id = p_appointment_id
+      AND status = 'scheduled';
+
+    IF NOT FOUND THEN
+        RETURN 'Appointment not found or already cancelled';
+    END IF;
+
+    RETURN 'Appointment cancelled successfully';
+END;
+$$;
+
 
 
 -- Trigger to automatically log appointment creation
@@ -222,6 +241,9 @@ GROUP BY DATE(appointment_time)
 ORDER BY total_appointments DESC, appointment_day ASC;
 
 
--- View audit history
 SELECT * FROM appointment_audit
 ORDER BY audit_id DESC;
+
+-- Cancel an appointment
+SELECT cancel_appointment(1);
+
