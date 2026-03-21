@@ -1,4 +1,3 @@
--- Schedules a new appointment for a patient with a doctor (validates that the time is in the future ,double booking)
 CREATE OR REPLACE FUNCTION schedule_appointment(
     p_patient_id INT,
     p_doctor_id INT,
@@ -26,7 +25,6 @@ END;
 $$;
 
 
--- Cancels a scheduled appointment ('scheduled' status only)
 CREATE OR REPLACE FUNCTION cancel_appointment(p_appointment_id INT)
 RETURNS TEXT
 LANGUAGE plpgsql
@@ -46,7 +44,6 @@ END;
 $$;
 
 
--- Returns all appointments for a specific doctor (patient name, time and status)
 CREATE OR REPLACE FUNCTION get_doctor_appointments(p_doctor_id INT)
 RETURNS TABLE (
     patient_name TEXT,
@@ -69,7 +66,6 @@ END;
 $$;
 
 
--- Returns all doctors who are available at a given time slot (no scheduled appointment at that time)
 CREATE OR REPLACE FUNCTION get_available_doctors(p_time TIMESTAMP)
 RETURNS TABLE (doctor_name TEXT)
 LANGUAGE plpgsql
