@@ -15,3 +15,17 @@ A relational database I built in PostgreSQL to practice database design, stored 
 ## Database Diagram
 
 ![Database Diagram](Medical_Appointment_Database_Diagram.png)
+
+## REST API
+
+Exposed the database as a REST API using PostgREST and tested endpoints with Postman.
+
+![PostgREST](https://img.shields.io/badge/PostgREST-000000?style=for-the-badge)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /patients | Get all patients |
+| GET | /doctors | Get all doctors |
+| GET | /appointments | Get all appointments |
+| GET | /specialties | Get all specialties |
