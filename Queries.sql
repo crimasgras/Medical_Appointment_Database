@@ -1,25 +1,14 @@
-
 SELECT schedule_appointment(1, 1, '2026-03-06 10:00:00');
-
 
 SELECT schedule_appointment(2, 1, '2026-03-06 10:00:00');
 
-
 SELECT schedule_appointment(1, 1, '2020-01-01 09:00:00');
-
 
 UPDATE appointments
 SET status = 'completed'
 WHERE appointment_id = 1;
 
-
 SELECT * FROM doctor_schedule;
-
-
-SELECT * FROM upcoming_appointments;
-
-
-SELECT * FROM doctor_appointment_summary;
 
 SELECT 
     d.doctor_id,
@@ -53,7 +42,5 @@ SELECT * FROM appointment_audit
 ORDER BY audit_id DESC;
 
 SELECT cancel_appointment(1);
-
-SELECT * FROM get_doctor_appointments(1);
 
 SELECT * FROM get_available_doctors('2026-03-06 10:00:00');
